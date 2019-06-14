@@ -8,11 +8,21 @@ var favoriteColors = []
 function setPreviewColor(color) {
     $('.preview').css('background-color', color);
     $('.color-code').text($('.preview').css('background-color'));
+    $('.hover-class').css('color', color);
+    //$('.tooltip').css('visibility', true);
+    //$('.tooltip').css('color', color);
+    $('.hovered-text').css('color', color);
+
 }
 //adds color boxes to the favorite colors
 function addBox(color) {
     $('#colors').prepend("<div class='item' id="+randId+" onmouseover='getselectColor(this)' style='background-color: " + color + ";'><div>");
 }
+
+// sets the hover color to the one entered in the input and display its color code using setPreviewColor function
+// function setHoverColor(color) {
+//     $('.hover-class').css('color', color);
+// }
 
 function getselectColor(val){
     color =    document.getElementById(val.id).style.backgroundColor;
@@ -67,6 +77,10 @@ $(document).ready(function(){
     $("#colortext").on("click mouseover","#favorites .item",function() {
         var color = $(this).attr('id');
         setPreviewColor(color);
+        //setHoverColor(color);
     });
+
+
+
 
 });
